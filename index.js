@@ -14,7 +14,8 @@ console.log("Choose your second number");
 const number2 = +readline.prompt();
 
 let total = 0
-if (operator == "add") {
+
+/*if (operator == "add") {
     total = number1 + number2;
 } else if (operator == "subtract") {
     total = number1 - number2;
@@ -25,6 +26,23 @@ if (operator == "add") {
 } else {
     console.log("Not an option")
     const x = readline.prompt();
+}*/
+
+switch (operator){
+    case "add":
+    total = number1 + number2;
+    break;
+    case "subtract":
+    total = number1 - number2; 
+    break;
+    case "divide":
+    total = number1 / number2;
+    break;
+    case "multiply":
+    total = number1 * number2;
+    break;
+    default:
+        console.log("Not an option") 
 }
 
 console.log("Your number is " + total)
