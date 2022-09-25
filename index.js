@@ -7,13 +7,39 @@ console.log("=============================");
 console.log("Please type in your operator (add, subtract, divide or multiply):")
 const operator = readline.prompt();
 
-console.log("Choose your first number");
-const number1 = +readline.prompt();
+console.log("How many numbers do you want to " + operator + "?");
+const calcQuantity = readline.prompt();
+const interatedCalc = +calcQuantity;
 
-console.log("Choose your second number");
-const number2 = +readline.prompt();
 
-let total = 0
+
+let quantityOfNumbers = new Array(interatedCalc);
+for (let i= 0; i < interatedCalc; i++) {
+    console.log("Choose number " + (i + 1) + ":");
+    const argument = +readline.prompt();
+    quantityOfNumbers[i] = +argument;
+}
+
+let total = quantityOfNumbers[0];
+for (let i= 0; i < interatedCalc; i++){
+    switch (operator){
+        case "add":
+        total += quantityOfNumbers[i];
+        break;
+        case "subtract":
+            total -= quantityOfNumbers[i];
+        break;
+        case "divide":
+            total /= quantityOfNumbers[i];
+        break;
+        case "multiply":
+            total *= quantityOfNumbers[i];
+        break;
+        default:
+            console.log("Not an option") 
+    }
+}
+
 
 /*if (operator == "add") {
     total = number1 + number2;
@@ -28,21 +54,6 @@ let total = 0
     const x = readline.prompt();
 }*/
 
-switch (operator){
-    case "add":
-    total = number1 + number2;
-    break;
-    case "subtract":
-    total = number1 - number2; 
-    break;
-    case "divide":
-    total = number1 / number2;
-    break;
-    case "multiply":
-    total = number1 * number2;
-    break;
-    default:
-        console.log("Not an option") 
-}
+
 
 console.log("Your number is " + total)
